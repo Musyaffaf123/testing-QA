@@ -1,18 +1,21 @@
 import unittest
 
-def calculate_square_root(number):
-    if number < 0:
-        raise ValueError("Bilangan harus non-negatif")
-    else:
-        return number ** 0.5
+# Fungsi sederhana yang akan diuji
+def add(a, b):
+    return a + b
 
-class TestSquareRoot(unittest.TestCase):
-    def test_positive_number(self):
-        self.assertEqual(calculate_square_root(9), 3)
-        
-    def test_negative_number(self):
-        with self.assertRaises(ValueError):
-            calculate_square_root(-9)
+# Kelas turunan dari unittest.TestCase
+class TestAddFunction(unittest.TestCase):
+    
+    # Fungsi pengujian untuk kasus uji pertama
+    def test_add_positive_numbers(self):
+        result = add(2, 3)
+        self.assertEqual(result, 5)  # Memastikan bahwa hasil sesuai dengan yang diharapkan
+    
+    # Fungsi pengujian untuk kasus uji kedua
+    def test_add_negative_numbers(self):
+        result = add(-1, 1)
+        self.assertEqual(result, 0)  # Memastikan bahwa hasil sesuai dengan yang diharapkan
 
 if __name__ == '__main__':
     unittest.main()
